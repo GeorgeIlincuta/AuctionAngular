@@ -7,12 +7,14 @@ import { AuctionComponent } from './auction/auction.component';
 import { LoginComponent } from './login/login.component';
 
 import { HttpClientModule } from '@angular/common/http';
+import { AuctionCardComponent } from './auction-card/auction-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AuctionComponent,
-    LoginComponent
+    LoginComponent,
+    AuctionCardComponent
   ],
   imports: [
     BrowserModule,

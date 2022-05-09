@@ -1,0 +1,87 @@
+<div class="card-deck">
+    <div *ngFor="let auction of auctions" class="card">
+      <img class="card-img-top" (click)="modal.click()" src="https://static.vecteezy.com/system/resources/previews/006/296/051/large_2x/flash-sale-background-blue-free-vector.jpg" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{auction.name}}</h5>
+        <p class="card-text">{{auction.description}}</p>
+        <div class="info">
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-dice-5-fill" viewBox="0 0 16 16">
+                    <path d="M3 0a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V3a3 3 0 0 0-3-3H3zm2.5 4a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm8 0a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zM12 13.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zM5.5 12a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zM8 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
+                  </svg>
+                <p class="card-text">Last Bid: {{auction.priceStart}} lei</p>
+            </div>
+            <hr class="line">
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-bag-check-fill" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5v-.5zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0zm-.646 5.354a.5.5 0 0 0-.708-.708L7.5 10.793 6.354 9.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z"/>
+                  </svg>
+                <p class="card-text">Buy now for: {{auction.minPrice}} lei</p>
+            </div>
+        </div>
+       
+        <p class="card-days text-center">
+            <small class="text-muted">{{auction.maxPeriod}} days left</small>
+        </p>
+
+        <div class="button-section">
+            <a href="#" class="btn btn-warning btn-lg"><b>Submit a bid</b></a>
+        </div>
+      </div>
+    </div>
+</div>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary auction-modal"  data-bs-toggle="modal" data-bs-target="#exampleModal" #modal>
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <div class="input-group mb-3">
+          <span class="input-group-text">Name</span>
+          <input type="text" class="form-control">
+        </div>
+
+        <div class="input-group mb-3">
+          <span class="input-group-text">Description</span>
+          <input type="text" class="form-control">
+        </div>
+
+        <div class="input-group mb-3">
+          <span class="input-group-text">Price</span>
+          <input type="text" class="form-control">
+        </div>
+
+        <div class="input-group mb-3">
+          <span class="input-group-text">Days</span>
+          <select class="form-control" id="exampleFormControlSelect1">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+        </div>
+
+        <div class="input-group mb-3">
+          <span class="input-group-text">Min Price</span>
+          <input type="text" class="form-control">
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Delete</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -12,6 +12,14 @@
   margin: .5rem;
 }
 
+.card-img-top {
+  cursor: pointer;
+}
+
+.auction-modal {
+  display: none;
+}
+
 .card-body{
   justify-content: center;
 }
@@ -36,10 +44,19 @@
 
 .line {
   border-left:1px solid #000;
-  height:2rem;
-  margin:1rem;
+  height: 4rem;
+  margin: 0.8rem;
 }
 
 svg {
   margin: .5rem 0;
+}
+
+.card-left {
+  text-align: center;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: space-evenly;
 }

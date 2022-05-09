@@ -1,0 +1,61 @@
+.card-deck {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    padding: 5rem 0;
+  }
+  
+  .card {
+    width: 18rem;
+    margin: .5rem;
+  }
+  
+  .card-img-top {
+    cursor: pointer;
+  }
+  
+  .auction-modal {
+    display: none;
+  }
+  
+  .card-body{
+    justify-content: center;
+  }
+  
+  .button-section {
+    display: flex;
+    justify-content: center;
+  }
+  .card-title {
+    text-align: center;
+  }
+  .card-text {
+    margin: 0 0 1rem 0;
+  }
+  
+  .info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .line {
+    border-left:1px solid #000;
+    height: 4rem;
+    margin: 0.8rem;
+  }
+  
+  svg {
+    margin: .5rem 0;
+  }
+  
+  .card-left {
+    text-align: center;
+  }
+  
+  .modal-footer {
+    display: flex;
+    justify-content: space-evenly;
+  }
