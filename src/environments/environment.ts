@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   AUCTION_API:"https://localhost:5001/api/Auction/",
+  USER_API:"https://localhost:5001/api/Auth/"
 };
 
 /*

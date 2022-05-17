@@ -3,15 +3,15 @@
         <div class="row justify-content-sm-center h-100">
             <div class="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9">
                 <div class="text-center my-5">
-                    <img src="https://getbootstrap.com/docs/5.0/assets/brand/bootstrap-logo.svg" alt="logo" width="100">
+                    <img src="https://cdn-icons-png.flaticon.com/512/345/345629.png" width="100" alt="">
                 </div>
                 <div class="card shadow-lg">
                     <div class="card-body p-5">
                         <h1 class="fs-4 card-title fw-bold mb-4">Register</h1>
-                        <form method="POST" class="needs-validation" novalidate="" autocomplete="off">
+                        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="needs-validation" novalidate="" autocomplete="off">
                             <div class="mb-3">
-                                <label class="mb-2 text-muted" for="name">Name</label>
-                                <input id="name" type="text" class="form-control" name="name" value="" required autofocus>
+                                <label class="mb-2 text-muted" for="username">Name</label>
+                                <input formControlName="username" id="username" type="text" class="form-control" name="username" value="" autofocus>
                                 <div class="invalid-feedback">
                                     Name is required	
                                 </div>
@@ -19,23 +19,15 @@
 
                             <div class="mb-3">
                                 <label class="mb-2 text-muted" for="email">E-Mail</label>
-                                <input id="email" type="email" class="form-control" name="email" value="" required>
+                                <input formControlName="email" id="email" type="email" class="form-control" name="email" value="" >
                                 <div class="invalid-feedback">
                                     Email is invalid
                                 </div>
                             </div>
 
                             <div class="mb-3">
-                                <label class="mb-2 text-muted" for="address">Address</label>
-                                <input id="address" type="text" class="form-control" name="address" value="" required>
-                                <div class="invalid-feedback">
-                                    Address is invalid
-                                </div>
-                            </div>
-
-                            <div class="mb-3">
                                 <label class="mb-2 text-muted" for="password">Password</label>
-                                <input id="password" type="password" class="form-control" name="password" required>
+                                <input formControlName="password" id="password" type="password" class="form-control" name="password" >
                                 <div class="invalid-feedback">
                                     Password is required
                                 </div>
@@ -46,7 +38,7 @@
                             </p>
 
                             <div class="align-items-center d-flex">
-                                <button type="submit" class="btn btn-primary ms-auto">
+                                <button [disabled]="!registerForm.valid" type="submit" class="btn btn-primary ms-auto">
                                     Register	
                                 </button>
                             </div>

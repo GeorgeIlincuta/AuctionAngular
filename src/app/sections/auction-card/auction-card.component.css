@@ -1,0 +1,71 @@
+.card-deck {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 5rem 0;
+}
+
+.card {
+  width: 18rem;
+  margin: .5rem;
+  text-align: center;
+  background-color: aliceblue;
+}
+
+.card-img-top {
+  cursor: pointer;
+}
+
+.auction-modal {
+  display: none;
+}
+
+.card-price {
+  font-size: 1.5rem;
+  color: #1a771a;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+.card-time {
+  font-size: 1.5rem;
+  color: #C0392B;
+  font-weight: bold;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.button a {
+  color: white;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.auction-button {
+  padding: .7rem;
+  display: block;
+  border-radius: 0.25rem;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+.bid-button {
+  background-color: #f1c40f;
+  margin-bottom: 1rem;
+}
+
+.buy-button {
+  background-color: #34495e;
+  color: white;
+}
+
+.auction-button:hover {
+  background-color: #27ae60;
+}

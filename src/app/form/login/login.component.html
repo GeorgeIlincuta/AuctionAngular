@@ -3,15 +3,15 @@
 		<div class="row justify-content-sm-center h-100">
 			<div class="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9">
 				<div class="text-center my-5">
-					<img src="https://getbootstrap.com/docs/5.0/assets/brand/bootstrap-logo.svg" alt="logo" width="100">
+					<img src="https://cdn-icons-png.flaticon.com/512/345/345629.png" width="100" alt="">
 				</div>
 				<div class="card shadow-lg">
 					<div class="card-body p-5">
 						<h1 class="fs-4 card-title fw-bold mb-4">Login</h1>
-						<form method="POST" class="needs-validation" novalidate="" autocomplete="off">
+						<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="needs-validation" novalidate="" autocomplete="off">
 							<div class="mb-3">
 								<label class="mb-2 text-muted" for="email">E-Mail Address</label>
-								<input id="email" type="email" class="form-control" name="email" value="" required autofocus>
+								<input formControlName="email" id="email" type="email" class="form-control" name="email" value="" autofocus>
 								<div class="invalid-feedback">
 									Email is invalid
 								</div>
@@ -24,7 +24,7 @@
 										Forgot Password?
 									</a>
 								</div>
-								<input id="password" type="password" class="form-control" name="password" required>
+								<input formControlName="password" id="password" type="password" class="form-control" name="password">
 								<div class="invalid-feedback">
 									Password is required
 								</div>
@@ -35,7 +35,7 @@
 									<input type="checkbox" name="remember" id="remember" class="form-check-input">
 									<label for="remember" class="form-check-label">Remember Me</label>
 								</div>
-								<button type="submit" class="btn btn-primary ms-auto">
+								<button [disabled]="!loginForm.valid" type="submit" class="btn btn-primary ms-auto">
 									Login
 								</button>
 							</div>
