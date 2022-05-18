@@ -8,6 +8,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
   providedIn: 'root'
 })
 export class AuthService {
+  logedIn:boolean = false;
 
   constructor(
     private http: HttpClient,
@@ -25,17 +26,25 @@ export class AuthService {
     }
   }
 
+  getFieldFromJWT(field: string): string {
+    const token = localStorage.getItem("jwt");
+    if (!token) {return '';}
+    const dataToken = JSON.parse(atob(token.split('.')[1]));
+    return dataToken[field];
+  }
  
   login(email:string, password:string) {
     const body = {
       Email:email,
       Password:password
     }
+    this.logedIn = true;
     return this.http.post(environment.USER_API + 'login', body);
   }
 
   logOut() {
     localStorage.removeItem("jwt");
+    this.logedIn = false;
   }
 
   register(username:string, email:string, password:string) {

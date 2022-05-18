@@ -7,11 +7,10 @@ import { AuthService } from 'src/app/service/auth.service';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-  
-  constructor(private authService: AuthService) { }
-  logedIn:boolean = false;
+
+  constructor(public authService: AuthService) { }
+
   ngOnInit(): void {
-    this.logedIn = this.authService.isUserAuthenticated();
   }
 
   public logOutUser() {
