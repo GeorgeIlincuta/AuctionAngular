@@ -10,17 +10,20 @@
                         <h1 class="fs-4 card-title fw-bold mb-4">Register</h1>
                         <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="needs-validation" novalidate="" autocomplete="off">
                             <div class="mb-3">
-                                <label class="mb-2 text-muted" for="username">Name</label>
+                                <label class="mb-2 text-muted" for="username">Username</label>
                                 <input formControlName="username" id="username" type="text" class="form-control" name="username" value="" autofocus>
-                                <div class="invalid-feedback">
-                                    Name is required	
+                                <div class="form-text text-danger" *ngIf="Username.errors?.['required'] && (Username.dirty || Username.touched)">
+                                    Username is required
                                 </div>
                             </div>
 
                             <div class="mb-3">
                                 <label class="mb-2 text-muted" for="email">E-Mail</label>
                                 <input formControlName="email" id="email" type="email" class="form-control" name="email" value="" >
-                                <div class="invalid-feedback">
+                                <div class="form-text text-danger" *ngIf="Email.errors?.['required'] && (Email.dirty || Email.touched)">
+                                    Email is required
+                                </div>
+                                <div class="form-text text-danger" *ngIf="Email.errors?.['email'] && (Email.dirty || Email.touched)">
                                     Email is invalid
                                 </div>
                             </div>
@@ -28,8 +31,14 @@
                             <div class="mb-3">
                                 <label class="mb-2 text-muted" for="password">Password</label>
                                 <input formControlName="password" id="password" type="password" class="form-control" name="password" >
-                                <div class="invalid-feedback">
+                                <div class="form-text text-danger" *ngIf="Password.errors?.['required'] && (Password.dirty || Password.touched)">
                                     Password is required
+                                </div>
+                                <div class="form-text text-danger" *ngIf="Password.errors?.['minlength'] || Password.errors?.['maxlength'] && (Password.dirty || Password.touched)">
+                                    Password should be at least 6 and at max 15 characters long
+                                </div>
+                                <div class="form-text text-danger" *ngIf="Password.errors?.['pattern'] && (Password.dirty || Password.touched)">
+                                    Password should have a number
                                 </div>
                             </div>
 
