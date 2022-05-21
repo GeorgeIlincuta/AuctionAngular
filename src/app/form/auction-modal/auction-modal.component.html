@@ -8,21 +8,30 @@
             </div>
 
             <div class="modal-body p-5 pt-0">
-            <form class="" _lpchecked="1">
+            <form [formGroup]="addAuction" (ngSubmit)="onSubmit()" class="" _lpchecked="1">
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control rounded-3" id="bidTitle" placeholder="title" autocomplete="off">
+                    <input formControlName="title" type="text" class="form-control rounded-3" id="bidTitle" placeholder="title" autocomplete="off">
                     <label for="bidTitle">Title</label>
+                    <div class="form-text text-danger" *ngIf="Title.errors?.['required'] && (Title.dirty || Title.touched)">
+                        Title is required
+                    </div>
                 </div>
                 <div class="form-floating mb-3">
-                    <textarea class="form-control" placeholder="Add Description" id="bidDescription" style="height: 100px"></textarea>
+                    <textarea formControlName="description" class="form-control" placeholder="Add Description" id="bidDescription" style="height: 100px"></textarea>
                     <label for="bidDescription">Description</label>
+                    <div class="form-text text-danger" *ngIf="Description.errors?.['required'] && (Description.dirty || Description.touched)">
+                        Description is required
+                    </div>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control rounded-3" id="bidStartPrice" placeholder="startingBid"  autocomplete="off">
+                    <input formControlName="bidStartPrice" type="text" class="form-control rounded-3" id="bidStartPrice" placeholder="startingBid"  autocomplete="off">
                     <label for="bidStartPrice">Starting Price Bid</label>
+                    <div class="form-text text-danger" *ngIf="BidStartPrice.errors?.['required'] && (BidStartPrice.dirty || BidStartPrice.touched)">
+                        Bid Start Price is required
+                    </div>
                 </div>
                 <div class="form-floating mb-3">
-                    <select class="form-select" id="bidDuration" aria-label="Select bid time duration">
+                    <select formControlName="bidDuration" class="form-select" id="bidDuration" aria-label="Select bid time duration">
                       <option selected>Select Hours</option>
                       <option value="1">1</option>
                       <option value="2">2</option>
@@ -50,15 +59,20 @@
                       <option value="24">24</option>
                     </select>
                     <label for="bidDuration">Bid Duration</label>
+                    <div class="form-text text-danger" *ngIf="BidDuration.errors?.['required'] && (BidDuration.dirty || BidDuration.touched)">
+                        Bid Duration is required
+                    </div>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control rounded-3" id="bidByingPrice" placeholder="bidPrice"  autocomplete="off">
-                    <label for="bidByingPrice">Buying Price</label>
+                    <input formControlName="bidBuyingPrice" type="text" class="form-control rounded-3" id="bidBuyingPrice" placeholder="bidPrice"  autocomplete="off">
+                    <label for="bidBuyingPrice">Buying Price</label>
+                    <div class="form-text text-danger" *ngIf="BidBuyingPrice.errors?.['required'] && (BidBuyingPrice.dirty || BidBuyingPrice.touched)">
+                        Bid Buying Price is required
+                    </div>
                 </div>
 
-                <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">Create</button>
-                <small class="text-muted">By clicking Sign up, you agree to the terms of use.</small>
-                
+                <button data-bs-dismiss="modal" [disabled]="!addAuction.valid" class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">Create</button>
+
             </form>
             </div>
         </div>

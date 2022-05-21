@@ -1,6 +1,6 @@
 <div class="card-deck">
     <div *ngFor="let auction of auctions" class="card">
-      <h5 class="card-title m-3">{{ auction.name | slice:0:25 }}{{ auction.name.length > 25 ? '...' : '' }}</h5>
+      <h5 class="card-title m-3">{{ auction.name | slice:0:23 }}{{ auction.name.length > 23 ? '...' : '' }}</h5>
       <img class="card-img-top" (click)="modal.click()" src="https://static.vecteezy.com/system/resources/previews/006/296/051/large_2x/flash-sale-background-blue-free-vector.jpg" height="200" alt="Card image cap">
       <div class="card-body">
         
