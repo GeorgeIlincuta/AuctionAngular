@@ -39,6 +39,7 @@ export class AuthService {
       Password:password
     }
     this.logedIn = true;
+    console.log(body);
     return this.http.post(environment.USER_API + 'login', body);
   }
 

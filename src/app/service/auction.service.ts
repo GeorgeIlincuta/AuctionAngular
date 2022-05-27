@@ -6,7 +6,7 @@ import { Auction } from '../models/auction.component';
 
 // const httpOptions = {
 //   headers: new HttpHeaders({
-//     Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('jwt')!).token
+//     Authorization: 'Bearer ' + JSON.parse(JSON.stringify(localStorage.getItem('jwt')!)).token
 //   })
 // }
 
@@ -22,18 +22,15 @@ export class AuctionService {
     return this.http.get<Auction[]>(environment.AUCTION_API + 'get-all-auctions');
   }
 
-  addAuction(name:string, description:string, bidStartPrice:number, bidDuration:number, bidBuyingPrice:number,
-    active:boolean, lastBid:null, appUserId:number, appUser:null) {  
+  addAuction(title:string, description:string, bidStartPrice:number, bidDuration:number, bidBuyingPrice:number,
+    active:boolean) {  
     const body = {
-      name:name,
+      title:title,
       description:description,
-      bidStart:bidStartPrice,
-      timeLeft:bidDuration,
-      buyPrice:bidBuyingPrice,
-      active:active,
-      lastBid:lastBid,
-      appUserId:appUserId,
-      appUser:appUser
+      bidStartPrice:bidStartPrice,
+      bidDuration:bidDuration,
+      bidBuyingPrice:bidBuyingPrice,
+      active:active
     }
     return this.http.post(environment.AUCTION_API + 'add-auction', body)
   }

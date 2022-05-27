@@ -1,15 +1,15 @@
 <div class="card-deck">
     <div *ngFor="let auction of auctions" class="card">
-      <h5 class="card-title m-3">{{ auction.name | slice:0:23 }}{{ auction.name.length > 23 ? '...' : '' }}</h5>
+      <h5 class="card-title m-3">{{ auction.title | slice:0:23 }}{{ auction.title.length > 23 ? '...' : '' }}</h5>
       <img class="card-img-top" (click)="modal.click()" src="https://static.vecteezy.com/system/resources/previews/006/296/051/large_2x/flash-sale-background-blue-free-vector.jpg" height="200" alt="Card image cap">
       <div class="card-body">
         
-        <p class="card-price">{{auction.bidStart}} lei</p>
-        <p class="card-time"><countdown [counter]="auction.timeLeft"></countdown></p>
+        <p class="card-price">{{auction.bidStartPrice}} lei</p>
+        <p class="card-time"><countdown [counter]="auction.bidDuration"></countdown></p>
      
         <div class="button-section">
           <a href="" class="auction-button bid-button">Submit a bid</a>
-          <a href="" class="auction-button buy-button">Buy now for: {{auction.buyPrice}} lei</a>
+          <a href="" class="auction-button buy-button">Buy now for: {{auction.bidBuyingPrice}} lei</a>
         </div>
         
       </div>

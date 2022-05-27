@@ -1,9 +1,10 @@
 export interface Auction {
-    name: string;
+    title: string;
     description: string;
-    bidStart: number;
-    timeLeft: number;
-    buyPrice: number;
+    bidStartPrice: number;
+    bidDuration: number;
+    bidBuyingPrice: number;
     active: boolean;
-    lastBid: number;
+    createdOn:Date;
+    appUserId: number;
 }

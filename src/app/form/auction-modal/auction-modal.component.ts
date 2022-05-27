@@ -20,25 +20,21 @@ export class AuctionModalComponent implements OnInit {
   
   constructor(
     private formBuilder: FormBuilder,
-    private auctionService: AuctionService,
-    private router: Router) { }
+    private auctionService: AuctionService) { }
 
   ngOnInit(): void {
   }
 
   onSubmit(){
-    let name = this.addAuction.controls["title"].value;
+    let title = this.addAuction.controls["title"].value;
     let description = this.addAuction.controls["description"].value;
-    let bidStart = parseInt(this.addAuction.controls["bidStartPrice"].value);
-    let timeLeft = parseInt(this.addAuction.controls["bidDuration"].value);
-    let buyPrice = parseInt(this.addAuction.controls["bidBuyingPrice"].value);
+    let bidStartPrice = parseInt(this.addAuction.controls["bidStartPrice"].value);
+    let bidDuration = parseInt(this.addAuction.controls["bidDuration"].value);
+    let bidBuyingPrice = parseInt(this.addAuction.controls["bidBuyingPrice"].value);
     let active = true;
-    let lastBid = null;
-    let appUserId = 2;
-    let appUser = null
     this.addAuction.reset();
 
-    this.auctionService.addAuction(name, description, bidStart, timeLeft, buyPrice, active, lastBid, appUserId, appUser).subscribe((data:any) => {
+    this.auctionService.addAuction(title, description, bidStartPrice, bidDuration, bidBuyingPrice, active,).subscribe((data:any) => {
       console.log("response", data);
     }, error => {
       console.log("error", error)
